@@ -1,5 +1,4 @@
-class Task1 (begin
-  )
+class MarioGame
   def initialize
     @health = 100
     @enemies = 0
