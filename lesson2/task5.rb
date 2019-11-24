@@ -8,18 +8,15 @@ class Colorize
 
   color_kinds.keys.each do |color|
     define_method(color) do
-      color_code = color_kinds[color]
-      puts "\e[#{color_code}m#{@text}\e[0m"
+      color_cast = color_kinds[color]
+      puts "\e[#{color_cast}m#{@text}\e[0m"
     end
   end
 end
 
-puts @text.colorize(ARGV)
-
-
-#puts 'Enter some text'
-#text = gets.chomp
-#puts 'Choose color of text'
-#color = gets.chomp
+puts 'Enter some text'
+text = gets.chomp
+puts 'Choose color of text'
+color = gets.chomp
 
 Colorize.new(text).send(color)
