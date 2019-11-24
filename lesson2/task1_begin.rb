@@ -13,3 +13,14 @@ class MarioGame
 end
 
 
+class Crash
+  def initialize
+    @health = 100
+    @power = 0
+    @level = 0
+  end
+
+  include Description::CrashMethods
+end
+
+

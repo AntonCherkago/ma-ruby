@@ -32,10 +32,6 @@ module Description
       puts @health
     end
 
-    def show_health
-      puts @health
-    end
-
     def show_count_of_enemies
       puts @enemies
     end
@@ -53,6 +49,23 @@ module Description
     end
 
     def show_level
+      puts @level
+    end
+  end
+
+  module CrashMethods
+    def health
+      @health -= 5
+      puts @health
+    end
+
+    def power
+      @power += 5
+      puts @power
+    end
+
+    def level
+      @level += 1
       puts @level
     end
   end
