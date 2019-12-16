@@ -10,8 +10,10 @@ class ArraySelection
 
   def str_to_i(item)
     item.to_s.to_i if item.to_s == item.to_s.to_i.to_s
+  rescue nil;NilClass
+    puts 'you are using string or nil. Please, use integer'
   end
 end
 
-b = ArraySelection.new([1, 3, 2, '6', 10, '42'])
+b = ArraySelection.new([1, 3, 2, '6', 10, '42', nil])
 p b.even_selector

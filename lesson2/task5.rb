@@ -1,14 +1,14 @@
 class Colorize
-  color_kinds = { red: 31, green: 32, yellow: 33, blue: 34,
+  COLOR_KINDS = { red: 31, green: 32, yellow: 33, blue: 34,
                   pink: 35, light_blue: 36, gray: 37 }
 
   def initialize(text)
     @text = text
   end
 
-  color_kinds.keys.each do |color|
+  COLOR_KINDS.keys.each do |color|
     define_method(color) do
-      color_cast = color_kinds[color]
+      color_cast = COLOR_KINDS[color]
       puts "\e[#{color_cast}m#{@text}\e[0m"
     end
   end
