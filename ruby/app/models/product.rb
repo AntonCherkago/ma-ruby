@@ -6,6 +6,10 @@ class Product < ActiveRecord::Base
   validates :price, numericality: {
       greater_than: 0, allow_nil: true }
   
-  after_create { ProductMailer.new_product_created(self).deliver }
+  after_update :actualize_cart_products
+
+  def actualize_cart_products
+    cart_products.update_all(title: title)
+  end
 
 end

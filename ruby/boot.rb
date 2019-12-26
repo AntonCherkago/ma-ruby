@@ -1,8 +1,19 @@
 require './config/initializers/database'
-require './app/models/shop'
-require './app/models/product'
+Dir["./app/models*.rb"].each {|file| require file }
 
-shop = Shop.find(1)
-#shop.products.create(title: 'phone', price: 100)
-puts shop.products.to_sql
+shop = Shop.new(
+  domain:     'allo.ua',
+  name:       'Allo',
+  address:    'Kyiv',
+  is_open:     true,
+  staff_count: 270)
+
+shop.save
+
+product = Product.create(
+    title: 'MI-9',
+    price: '9000',
+    shop:   shop )
+
+product.save
 

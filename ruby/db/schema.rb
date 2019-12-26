@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_213138) do
+ActiveRecord::Schema.define(version: 2019_12_16_181715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
-    t.integer "user"
+    t.string "user"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_213138) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user"
+    t.string "user"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

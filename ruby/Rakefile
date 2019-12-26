@@ -16,6 +16,13 @@ namespace :db do
     puts "Database migrated."
   end
 
+  desc "Rollback to the previous migration"
+  task :rollback do
+    ActiveRecord::Base.connection.migration_context.rollback
+    Rake::Task["db:schema"].invoke
+    puts "Migration has been reverted"
+  end
+
   desc 'Create a db/schema.rb file that is portable against any DB supported by AR'
   task :schema do
     require 'active_record/schema_dumper'
